@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Empleados</title>
+    <!-- Estilos de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Lista Empleados</h2>
+
+		<a th:href="@{/registrarEmp}" class="btn btn btn-outline-secondary">Registrar</a>
+       
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>DNI</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+					<th>Fecha Nacimiento</th>
+					<th>Dirección</th>
+					<th>Correo</th>
+					<th>Área</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="user : ${lstEmp}">
+                    <td th:text="${user.dniEmpleado}"></td>
+                    <td th:text="${user.nombreEmpleado}"></td>
+                    <td th:text="${user.apellidoEmpleado}"></td>
+					<td th:text="${user.fechaNacimiento}"></td>
+					<td th:text="${user.direccion}"></td>
+					<td th:text="${user.correo}"></td>
+					<td th:text="${user.areaEntity.nombreArea}"></td>
+                    <td>
+                    <a th:href="@{/editarEmp/{id}(id=${user.dniEmpleado})}" class="btn btn btn-outline-primary">Editar</a> |
+                    <a th:href="@{/eliminarEmp/{id}(id=${user.dniEmpleado})}" class="btn btn-outline-danger">Eliminar</a>  
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Scripts de Bootstrap y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

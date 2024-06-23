@@ -7,4 +7,6 @@ import com.example.demo.entity.EmpleadoEntity;
 @Repository
 public interface EmpleadoRepository extends JpaRepository<EmpleadoEntity, String>{
 
+	EmpleadoEntity findByDniEmpleado(String dniEmpleado);
+	
 }

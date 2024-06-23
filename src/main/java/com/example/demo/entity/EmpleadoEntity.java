@@ -34,7 +34,7 @@ public class EmpleadoEntity {
 	}
 
 	@Id
-	@Column(name = "dni_empleado", nullable = false, columnDefinition = "CHAR(8)")
+	@Column(name = "dni_empleado", nullable = false, columnDefinition = "CHAR(8)", unique= true)
 	private String dniEmpleado;
 
 	@Column(name = "nombre_empleado", nullable = false, columnDefinition = "VARCHAR(45)")
